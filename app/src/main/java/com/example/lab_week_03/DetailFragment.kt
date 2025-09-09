@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 
 class DetailFragment : Fragment() {
-
     private lateinit var nameText: TextView
     private lateinit var descriptionText: TextView
 
@@ -19,11 +18,15 @@ class DetailFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_detail, container, false)
         nameText = view.findViewById(R.id.coffee_name_text)
         descriptionText = view.findViewById(R.id.coffee_description_text)
-        return view
-    }
 
-    fun updateCoffee(name: String, description: String) {
-        nameText.text = name
-        descriptionText.text = description
+        val name = arguments?.getString("name")
+        val description = arguments?.getString("description")
+
+        if (!name.isNullOrEmpty() && !description.isNullOrEmpty()) {
+            nameText.text = name
+            descriptionText.text = description
+        }
+
+        return view
     }
 }

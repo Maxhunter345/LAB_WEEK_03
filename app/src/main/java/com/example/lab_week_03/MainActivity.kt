@@ -7,11 +7,25 @@ class MainActivity : AppCompatActivity(), ListFragment.CoffeeListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, ListFragment())
+                .commit()
+        }
     }
 
     override fun onCoffeeSelected(name: String, description: String) {
-        val detailFragment =
-            supportFragmentManager.findFragmentById(R.id.detail_fragment) as DetailFragment
-        detailFragment.updateCoffee(name, description)
+        val detailFragment = DetailFragment().apply {
+            arguments = Bundle().apply {
+                putString("name", name)
+                putString("description", description)
+            }
+        }
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, detailFragment)
+            .addToBackStack(null)
+            .commit()
     }
 }
