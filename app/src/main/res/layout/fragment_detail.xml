@@ -5,14 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Divider -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"
         android:layout_marginBottom="12dp"/>
 
-    <!-- Coffee Name -->
     <TextView
         android:id="@+id/coffee_name_text"
         android:layout_width="match_parent"
@@ -23,14 +21,12 @@
         android:gravity="center"
         android:layout_marginBottom="8dp"/>
 
-    <!-- Divider -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"
         android:layout_marginBottom="12dp"/>
 
-    <!-- Coffee Description -->
     <TextView
         android:id="@+id/coffee_description_text"
         android:layout_width="match_parent"
