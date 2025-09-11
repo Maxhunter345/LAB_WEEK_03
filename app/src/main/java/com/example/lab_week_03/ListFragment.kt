@@ -9,10 +9,11 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 
 class ListFragment : Fragment() {
 
-    private lateinit var listener: CoffeeListener
+    private var listener: CoffeeListener? = null
 
     interface CoffeeListener {
         fun onCoffeeSelected(name: String, description: String)
@@ -22,29 +23,49 @@ class ListFragment : Fragment() {
         super.onAttach(context)
         if (context is CoffeeListener) {
             listener = context
-        } else {
-            throw RuntimeException("$context must implement CoffeeListener")
         }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        listener = null
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_list, container, false)
+        return inflater.inflate(R.layout.fragment_list, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         val listView = view.findViewById<ListView>(R.id.coffee_list_view)
         val coffeeNames = resources.getStringArray(R.array.coffee_names)
+        val coffeeDescriptions = resources.getStringArray(R.array.coffee_descriptions)
 
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, coffeeNames)
         listView.adapter = adapter
 
         listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
-            val names = resources.getStringArray(R.array.coffee_names)
-            val descriptions = resources.getStringArray(R.array.coffee_descriptions)
-            listener.onCoffeeSelected(names[position], descriptions[position])
-        }
+            val name = coffeeNames[position]
+            val description = coffeeDescriptions[position]
 
-        return view
+            val detailContainerPresent = requireActivity().findViewById<View?>(R.id.detail_fragment) != null
+
+            if (detailContainerPresent && listener != null) {
+                listener!!.onCoffeeSelected(name, description)
+            } else {
+                val bundle = Bundle().apply {
+                    putString("name", name)
+                    putString("description", description)
+                }
+                Navigation.findNavController(view).navigate(
+                    R.id.action_listFragment_to_detailFragment,
+                    bundle
+                )
+            }
+        }
     }
 }

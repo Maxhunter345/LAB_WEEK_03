@@ -19,8 +19,9 @@ class DetailFragment : Fragment() {
         nameText = view.findViewById(R.id.coffee_name_text)
         descriptionText = view.findViewById(R.id.coffee_description_text)
 
-        val name = arguments?.getString("name")
-        val description = arguments?.getString("description")
+        val args = arguments
+        val name = args?.getString("name")
+        val description = args?.getString("description")
 
         if (!name.isNullOrEmpty() && !description.isNullOrEmpty()) {
             nameText.text = name
@@ -28,5 +29,10 @@ class DetailFragment : Fragment() {
         }
 
         return view
+    }
+
+    fun updateCoffee(name: String, description: String) {
+        nameText.text = name
+        descriptionText.text = description
     }
 }

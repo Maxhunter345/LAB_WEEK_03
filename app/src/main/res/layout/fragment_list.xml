@@ -12,10 +12,14 @@
         android:text="Coffee List"
         android:textSize="30sp"
         android:layout_marginBottom="12dp"/>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="12dp"/>
 
     <ListView
         android:id="@+id/coffee_list_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:dividerHeight="1dp"/>
+        android:layout_height="match_parent"/>
 </LinearLayout>

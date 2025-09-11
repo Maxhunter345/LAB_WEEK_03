@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">LAB_WEEK_03</string>
-
     <string-array name="coffee_names">
         <item>Affogato</item>
         <item>Americano</item>
@@ -8,8 +7,9 @@
     </string-array>
 
     <string-array name="coffee_descriptions">
-        <item>A traditional Italian coffee-based dessert, consisting of a scoop of vanilla gelato or ice cream topped with a shot of hot espresso.</item>
-        <item>Espresso diluted with hot water, producing a coffee similar in strength to but different in flavor from drip coffee.</item>
-        <item>A coffee drink made with espresso and steamed milk, with a layer of foam on top.</item>
+        <item>Espresso poured over vanilla ice cream.</item>
+        <item>Espresso with added hot water.</item>
+        <item>Espresso with steamed milk and foam.</item>
     </string-array>
+
 </resources>
