@@ -1,25 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/list_header"
-        android:layout_width="wrap_content"
+        android:id="@+id/coffee_list_title"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Coffee List"
-        android:textSize="30sp"
-        android:layout_marginBottom="12dp"/>
-    
+        android:textSize="28sp"
+        android:layout_marginBottom="18dp"/>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginBottom="12dp"/>
+        android:background="@android:color/darker_gray"
+        android:layout_marginBottom="16dp"/>
 
-    <ListView
-        android:id="@+id/coffee_list_view"
+    <TextView
+        android:id="@+id/affogato"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:text="AFFOGATO"
+        android:padding="8dp"
+        android:background="?android:attr/selectableItemBackground"/>
+
+    <TextView
+        android:id="@+id/americano"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AMERICANO"
+        android:padding="8dp"
+        android:background="?android:attr/selectableItemBackground"/>
+
+    <TextView
+        android:id="@+id/latte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LATTE"
+        android:padding="8dp"
+        android:background="?android:attr/selectableItemBackground"/>
+
+    <TextView
+        android:id="@+id/cappuccino"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CAPPUCINO"
+        android:padding="8dp"
+        android:background="?android:attr/selectableItemBackground"/>
+
+    <TextView
+        android:id="@+id/mocha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MOCHA"
+        android:padding="8dp"
+        android:background="?android:attr/selectableItemBackground"/>
 </LinearLayout>

@@ -4,12 +4,15 @@
         <item>Affogato</item>
         <item>Americano</item>
         <item>Caffè Latte</item>
+        <item>Cappuccino</item>
+        <item>Mocha</item>
     </string-array>
 
     <string-array name="coffee_descriptions">
         <item>Espresso poured over vanilla ice cream.</item>
         <item>Espresso with added hot water.</item>
         <item>Espresso with steamed milk and foam.</item>
+        <item>Equal parts espresso, steamed milk, and foam.</item>
+        <item>Espresso mixed with chocolate and steamed milk.</item>
     </string-array>
-
 </resources>
